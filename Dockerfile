@@ -12,7 +12,7 @@ RUN apk --no-cache add php php-common php-fpm php-json php-zip php-gd php-mysqli
     nginx supervisor curl
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 # Install NPM
 RUN apk add --update nodejs npm
