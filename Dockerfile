@@ -12,8 +12,7 @@ RUN apk --no-cache add php php-common php-fpm php-json php-zip php-gd php-mysqli
     nginx supervisor curl
 
 # Install Composer
-RUN curl -s https://getcomposer.org/installer | php
-RUN alias composer='php composer.phar'
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install NPM
 RUN apk add --update nodejs npm
