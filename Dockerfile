@@ -34,6 +34,10 @@ COPY webconf/php.ini /etc/php7/conf.d/custom.ini
 # Configure supervisord
 COPY webconf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Setup document installation
+RUN mkdir file
+COPY . /file/
+WORKDIR /file
 RUN npm install && composer install
 
 # Setup document root
@@ -51,6 +55,7 @@ USER nobody
 # Add application
 WORKDIR /var/www/html
 COPY --chown=nobody . /var/www/html/
+RUN npm install && composer install
 
 # Expose the port nginx is reachable on
 EXPOSE 8080
