@@ -48,8 +48,8 @@ USER nobody
 
 # Add application
 WORKDIR /var/www/html
-RUN npm install && composer install
 COPY --chown=nobody . /var/www/html/
+RUN npm install && composer install
 
 # Expose the port nginx is reachable on
 EXPOSE 8080
