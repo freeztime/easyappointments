@@ -19,7 +19,7 @@ RUN apk add --update nodejs npm
 RUN apk add --update npm
 
 # https://github.com/codecasts/php-alpine/issues/21
-RUN ln -s /usr/bin/php7 /usr/bin/php
+# RUN ln -s /usr/bin/php7 /usr/bin/php
 
 # Configure nginx
 COPY webconf/nginx.conf /etc/nginx/nginx.conf
