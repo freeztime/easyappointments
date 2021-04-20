@@ -48,7 +48,7 @@ USER nobody
 
 # Add application
 WORKDIR /var/www/html
-COPY --chown=nobody . /var/www/html/
+COPY --chown=node . /var/www/html/
 RUN npm install && composer install
 
 # Expose the port nginx is reachable on
