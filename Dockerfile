@@ -8,11 +8,8 @@ RUN apk --update add ca-certificates
 RUN echo "https://dl.bintray.com/php-alpine/v3.11/php-7.3" >> /etc/apk/repositories
 
 # Install packages
-RUN apk --no-cache add php php-common php-fpm php-json php-zip php-gd php-opcache php-openssl php-curl \
+RUN apk --no-cache add php php-common php-fpm php-json php-zip php-gd php-mysqli php-opcache php-openssl php-curl \
     nginx supervisor curl
-
-# Install mysqli
-RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # Install Composer
 RUN curl -s https://getcomposer.org/installer | php
